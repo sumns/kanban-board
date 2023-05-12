@@ -1,0 +1,10 @@
+.moreCard {
+  width: 20rem;
+  height: 3rem;
+  background-color: rgba(2, 3, 3, 0.185);
+}
+
+.moreIcon:hover {
+  background-color: lightgray;
+  color: black;
+}
