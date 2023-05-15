@@ -83,8 +83,10 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Umang Sharma</MenuItem>
+                <MenuItem onClick={handleClose}>Shubham Shinde</MenuItem>
+                <MenuItem onClick={handleClose}>Vijay Yagik</MenuItem>
+                <MenuItem onClick={handleClose}>Suman Kumar Sharma</MenuItem>
               </Menu>
             </div>
           )}
