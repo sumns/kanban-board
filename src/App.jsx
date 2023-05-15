@@ -1,8 +1,10 @@
 import Board from "./Component/List/Board/Board";
 import Editable from "./Component/List/Editable/Editable";
-import MenuAppBar from "./Component/Header/Header";
+import BoardAppBar from "./Component/Header/Header";
 import "./App.css";
 import { useState ,useEffect} from "react";
+import Discription from "./Component/discription/Discription";
+import CardDetails from "./Component/discription/Discription";
 
 // import Navbar from "./Component/navBar/NavBar";
 const App = () => {
@@ -65,11 +67,14 @@ const App = () => {
   }, [boards]);
 
   return (
-    <div className="app">
-      <div className="app_navbar">
-        <MenuAppBar />
-        {/* <Navbar /> */}
-      </div>
+    <>
+      {/* //  <Discription />
+    // <div className="app">
+    //   <div className="app_navbar"> */}
+      {/* <BoardAppBar /> */}
+      <CardDetails />
+      {/* <Navbar /> */}
+      {/* </div>
       <div className="app_outer">
         <div className="app_boards">
 
@@ -96,7 +101,8 @@ const App = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
 
