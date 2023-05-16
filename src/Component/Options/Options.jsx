@@ -1,32 +1,52 @@
-import { useState } from "react";
-import style from "./Options.module.css";
-import Card from "@mui/material/Card";
-import Stack from "@mui/material/Stack";
+import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import Collapse from "@mui/material/Collapse";
-// import MoreOptions from './MoreOptions';
+import Popover from "@mui/material/Popover";
 import OptionList from "./OptionList";
+import Stack from "@mui/material/Stack";
 
 function Options() {
-  const [ListVisible, setListVisible] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
-  function handleClick() {
-    setListVisible(!ListVisible);
-  }
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "options-popover" : undefined;
 
   return (
     <div>
-      <Card variant="outlined" className={style.moreCard}>
-        <Stack direction="row" justifyContent="right">
-          <IconButton size="large" aria-label="more" className={style.moreIcon}>
-            <MoreHorizIcon fontSize="medium" onClick={handleClick} />
-          </IconButton>
-        </Stack>
-      </Card>
-      <Collapse in={ListVisible}>
-        <OptionList />
-      </Collapse>
+      <Stack direction="row" justifyContent="right">
+        <IconButton
+          size="large"
+          aria-label="more"
+          onClick={handleClick}
+        >
+          <MoreHorizIcon fontSize="medium" />
+        </IconButton>
+      </Stack>
+
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+      >
+        <OptionList onClose={handleClose} />
+      </Popover>
     </div>
   );
 }
