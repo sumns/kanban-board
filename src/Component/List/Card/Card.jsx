@@ -11,7 +11,13 @@ function Card(props) {
   const [showDropdown, setShowDropdown] = useState(false);
   const { id, title} = props.card;
   return (
-    <div className="card">
+    <div
+        className="card"
+        draggable
+        onDragEnd={() => props.dragEnded(props.boardId, id)}
+        onDragEnter={() => props.dragEntered(props.boardId, id)}
+        onClick={() => setShowModal(true)}
+      >
       <div className="card_top">
       <div className="card_top_labels">
             
