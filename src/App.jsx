@@ -1,8 +1,10 @@
 import Board from "./Component/List/Board/Board";
 import Editable from "./Component/List/Editable/Editable";
-import MenuAppBar from "./Component/Header/Header";
+import BoardAppBar from "./Component/Header/Header";
 import "./App.css";
 import { useState ,useEffect} from "react";
+import Discription from "./Component/discription/Discription";
+import CardDetails from "./Component/discription/Discription";
 
 // import Navbar from "./Component/navBar/NavBar";
 const App = () => {
@@ -107,8 +109,8 @@ const App = () => {
   }, [boards]);
 
   return (
+     <>
     <div className="app">
-    
       <div className="app_navbar">
         <MenuAppBar />
         {/* <Navbar /> */}
@@ -127,8 +129,6 @@ const App = () => {
               dragEntered={dragEntered}
             />
           ))}
-
-
           <div className="app_boards_board">
           <Editable
               displayClass="app_boards_add-board"
@@ -141,7 +141,8 @@ const App = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
 
