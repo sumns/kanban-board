@@ -6,6 +6,8 @@ import { useState ,useEffect} from "react";
 import Discription from "./Component/discription/Discription";
 import CardDetails from "./Component/discription/Discription";
 
+import MenuAppBar from "./Component/Header/Header"
+
 // import Navbar from "./Component/navBar/NavBar";
 const App = () => {
   const [boards, setBoards] = useState(
@@ -141,7 +143,7 @@ const App = () => {
           </div>
         </div>
       </div>
-    </div> */}
+    </div> 
     </>
   );
 };
