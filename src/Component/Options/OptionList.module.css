@@ -1,7 +1,18 @@
+.ListName{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
 
+.ListCloseIcon{
+    padding-top: 15px;
+    justify-content: left;
+}
 
 .ListHeading{
     text-align: center;
+    justify-content: center;
+    align-items: center;
     padding-top: 15px;
 }
 
