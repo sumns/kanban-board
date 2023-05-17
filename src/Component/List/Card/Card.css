@@ -10,6 +10,12 @@
 .card_top {
   display: flex;
   gap: 5px;
+  height: 0;
+}
+
+.card_title{
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .card_title{
@@ -20,6 +26,7 @@
   flex: 1;
   display: flex;
   gap: 10px;
+
 }
 
 .card_top svg {
