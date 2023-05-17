@@ -111,7 +111,17 @@ const App = () => {
     <div className="app">
     
       <div className="app_navbar">
-        <MenuAppBar />
+        {/* <MenuAppBar /> */}
+
+        <p contentEditable={true}>Kanban Board</p>
+
+       <ul>
+        <li><button contentEditable={true}>Umang Sharma</button></li>
+        <li><button contentEditable={true}>Vijay Yagik</button></li>
+        <li><button contentEditable={true}>Shubham Shinde</button></li>
+        <li><button contentEditable={true}>Suman Kumar Sharma</button></li>
+       </ul>
+
        
       </div>
       <div className="app_outer">

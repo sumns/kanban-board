@@ -23,6 +23,29 @@ p {
   width: 100%;
   padding: 20px 30px;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app_navbar p{
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.app_navbar button{
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.app_navbar ul{
+  display: flex;
+
+}
+.app_navbar ul li {
+  display: flex;
+  margin: 5px;
 }
 
 .app_outer {
