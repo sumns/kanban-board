@@ -4,7 +4,7 @@ import MenuAppBar from "./Component/Header/Header";
 import "./App.css";
 import { useState ,useEffect} from "react";
 
-// import Navbar from "./Component/navBar/NavBar";
+
 const App = () => {
   const [boards, setBoards] = useState(
     JSON.parse(localStorage.getItem("prac-kanban")) || []
@@ -106,12 +106,13 @@ const App = () => {
     localStorage.setItem("prac-kanban", JSON.stringify(boards));
   }, [boards]);
 
+
   return (
     <div className="app">
     
       <div className="app_navbar">
         <MenuAppBar />
-        {/* <Navbar /> */}
+       
       </div>
       <div className="app_outer">
         <div className="app_boards">
