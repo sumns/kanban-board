@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Board.css";
 import Options from "../../Options/Options";
-//import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Card from "../Card/Card";
 import Editable from "../Editable/Editable";
 import Dropdown from "../Dropdown/Dropdown";
@@ -21,7 +20,7 @@ function Board(props) {
           onClick={() => setShowDropdown(true)}
         >
           <Options />
-
+          <MoreHorizIcon />
           {showDropdown && (
             <Dropdown
             class="board_dropdown"
