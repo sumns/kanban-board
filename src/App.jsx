@@ -1,14 +1,21 @@
-import React,{useState, useEffect} from "react";
- import Board from "./Component/List/Board/Board";
+import Board from "./Component/List/Board/Board";
 import Editable from "./Component/List/Editable/Editable";
 import MenuAppBar from "./Component/Header/Header";
 import "./App.css";
+import { useState ,useEffect} from "react";
+import Discription from "./Component/discription/Discription";
+//import CardDetails from "./Component/discription/Discription";
+import {Routes, Route} from 'react-router-dom';
 
 export default function App() {
   const [boards, setBoards] = useState(
     JSON.parse(localStorage.getItem("prac-kanban")) || []
   );
 
+  const [targetCard, setTargetCard] = useState({
+    bid: "",
+    cid: "",
+  });
 
   const addboardHandler = (name) => {
     const tempBoards = [...boards];
@@ -59,46 +66,86 @@ export default function App() {
     setBoards(tempBoards);
   };
 
+  const dragEnded = (bid, cid) => {
+    let s_boardIndex, s_cardIndex, t_boardIndex, t_cardIndex;
+    s_boardIndex = boards.findIndex((item) => item.id === bid);
+    if (s_boardIndex < 0) return;
+
+    s_cardIndex = boards[s_boardIndex]?.cards?.findIndex(
+      (item) => item.id === cid
+    );
+    if (s_cardIndex < 0) return;
+
+    t_boardIndex = boards.findIndex((item) => item.id === targetCard.bid);
+    if (t_boardIndex < 0) return;
+
+    t_cardIndex = boards[t_boardIndex]?.cards?.findIndex(
+      (item) => item.id === targetCard.cid
+    );
+    if (t_cardIndex < 0) return;
+
+    const tempBoards = [...boards];
+    const sourceCard = tempBoards[s_boardIndex].cards[s_cardIndex];
+    tempBoards[s_boardIndex].cards.splice(s_cardIndex, 1);
+    tempBoards[t_boardIndex].cards.splice(t_cardIndex, 0, sourceCard);
+    setBoards(tempBoards);
+
+    setTargetCard({
+      bid: "",
+      cid: "",
+    });
+  };
+
+  const dragEntered = (bid, cid) => {
+    if (targetCard.cid === cid) return;
+    setTargetCard({
+      bid,
+      cid,
+    });
+  };
+
   useEffect(() => {
     localStorage.setItem("prac-kanban", JSON.stringify(boards));
   }, [boards]);
 
   return (
-<div className="app">
+     <>
+    <Routes>
+        <Route path="/card/:cardId" element={<Discription/>} />
+    </Routes>
     
-    <div className="app_navbar">
-      <MenuAppBar />
-      {/* <Navbar /> */}
-    </div>
-    <div className="app_outer">
-      <div className="app_boards">
+    <div className="app">
+      <div className="app_navbar">
+        <MenuAppBar />
+        {/* <Navbar /> */}
+      </div>
+      <div className="app_outer">
+        <div className="app_boards">
 
-      {boards.map((item) => (
-          <Board
-          key={item.id}
-          board={item}
-          addCard={addCardHandler}
-          removeBoard={() => removeBoard(item.id)}
-          removeCard={removeCard}
-          // dragEnded={dragEnded}
-          // dragEntered={dragEntered}
-        />
-        ))}
-
-
-        <div className="app_boards_board">
-        <Editable
-            displayClass="app_boards_add-board"
-            editClass="app_boards_add-board_edit"
-            placeholder="Enter Board Name"
-            text="Add Board"
-            buttonText="Add Board"
-            onSubmit={addboardHandler}
-          />
+        {boards.map((item) => (
+            <Board
+              key={item.id}
+              board={item}
+              addCard={addCardHandler}
+              removeBoard={() => removeBoard(item.id)}
+              removeCard={removeCard}
+              dragEnded={dragEnded}
+              dragEntered={dragEntered}
+            />
+          ))}
+          <div className="app_boards_board">
+          <Editable
+              displayClass="app_boards_add-board"
+              editClass="app_boards_add-board_edit"
+              placeholder="Enter Board Name"
+              text="Add Board"
+              buttonText="Add Board"
+              onSubmit={addboardHandler}
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    </>
   );
-};
- App;
+}

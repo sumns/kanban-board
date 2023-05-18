@@ -6,24 +6,25 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  background-color: darkgray;
+  border-radius: 5px;
+  
 }
 
 .board_header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 10px;
+ 
 }
 
 .board_header_title {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 20px;
   display: flex;
   gap: 5px;
   align-items: center;
-}
-
-.board_header_title span {
-  color: rgb(145, 145, 145);
 }
 
 .board_header_title_more {
@@ -43,7 +44,7 @@
 }
 
 .board_cards {
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
   padding: 10px;
   border-radius: 5px;
   display: flex;
