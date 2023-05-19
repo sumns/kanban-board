@@ -17,6 +17,7 @@ function Card(props) {
           onClose={() => setShowModal(false)}
           card={props.card}
           boardId={props.boardId}
+          updateCard={props.updateCard}
 
         />
       )}

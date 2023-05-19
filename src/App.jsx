@@ -100,6 +100,7 @@ const App = () => {
     });
   };
 
+
   useEffect(() => {
     localStorage.setItem("prac-kanban", JSON.stringify(boards));
   }, [boards]);
