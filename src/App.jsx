@@ -112,14 +112,7 @@ const App = () => {
       <div className="app_navbar">
         {/* <MenuAppBar /> */}
 
-        <p contentEditable={true}>Kanban Board</p>
-
-       <ul>
-        <li><button contentEditable={true}>Umang Sharma</button></li>
-        <li><button contentEditable={true}>Vijay Yagik</button></li>
-        <li><button contentEditable={true}>Shubham Shinde</button></li>
-        <li><button contentEditable={true}>Suman Kumar Sharma</button></li>
-       </ul>
+        <p><span>🌟</span> Kanban Board</p>
 
        
       </div>

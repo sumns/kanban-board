@@ -39,14 +39,6 @@ p {
   cursor: pointer;
 }
 
-.app_navbar ul{
-  display: flex;
-
-}
-.app_navbar ul li {
-  display: flex;
-  margin: 5px;
-}
 
 .app_outer {
   flex: 1;
