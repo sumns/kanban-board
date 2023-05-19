@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import "./Editable.css";
-// import CloseIcon from "@mui/icons-material/Close";
 import CloseIcon from "@mui/icons-material/Close";
 
 function Editable(props) {
