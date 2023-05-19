@@ -3,9 +3,11 @@ import Editable from "./Component/List/Editable/Editable";
 import MenuAppBar from "./Component/Header/Header";
 import "./App.css";
 import { useState ,useEffect} from "react";
+import Discription from "./Component/discription/Discription";
+//import CardDetails from "./Component/discription/Discription";
+import {Routes, Route} from 'react-router-dom';
 
-
-const App = () => {
+export default function App() {
   const [boards, setBoards] = useState(
     JSON.parse(localStorage.getItem("prac-kanban")) || []
   );
@@ -15,7 +17,7 @@ const App = () => {
     cid: "",
   });
 
- const addboardHandler = (name) => {
+  const addboardHandler = (name) => {
     const tempBoards = [...boards];
     tempBoards.push({
       id: Date.now() + Math.random() * 2,
@@ -25,7 +27,7 @@ const App = () => {
     setBoards(tempBoards);
   };
 
- 
+
   const removeBoard = (id) => {
     const index = boards.findIndex((item) => item.id === id);
     if (index < 0) return;
@@ -43,7 +45,7 @@ const App = () => {
     tempBoards[index].cards.push({
       id: Date.now() + Math.random() * 2,
       title,
- 
+      date: "",
     });
     setBoards(tempBoards);
   };
@@ -107,8 +109,12 @@ const App = () => {
 
 
   return (
-    <div className="app">
+     <>
+    <Routes>
+        <Route path="/card/:cardId" element={<Discription/>} />
+    </Routes>
     
+    <div className="app">
       <div className="app_navbar">
         {/* <MenuAppBar /> */}
 
@@ -130,8 +136,6 @@ const App = () => {
               dragEntered={dragEntered}
             />
           ))}
-
-
           <div className="app_boards_board">
           <Editable
               displayClass="app_boards_add-board"
@@ -145,7 +149,6 @@ const App = () => {
         </div>
       </div>
     </div>
+    </>
   );
-};
-
-export default App;
+}

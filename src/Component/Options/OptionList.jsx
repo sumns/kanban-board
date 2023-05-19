@@ -1,26 +1,25 @@
-//import * as React from 'react';
-import Box from "@mui/material/Box";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Divider from "@mui/material/Divider";
-import style from "./OptionList.module.css";
-//import CloseIcon from '@mui/icons-material/Close';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import style from './OptionList.module.css';
+import CloseIcon from '@mui/icons-material/Close';
 
-export default function OptionList() {
+export default function OptionList({ onClose }) {
+  const handleClose = () => {
+    onClose();
+  };
+
   return (
-    <Box
-      sx={{
-        width: "100%",
-        maxWidth: "20rem",
-        maxHeight: "45rem",
-        bgcolor: "lightGrey",
-        borderRadius: "4px",
-      }}
-    >
-      <nav>
-        <h5 className={style.ListHeading}>List Actions</h5>
+    <Box sx={{ width: '20rem', maxWidth: '100%', maxHeight: '45rem', bgcolor: 'lightGrey', borderRadius: '4px'}}>
+      <nav className={style.ListName}>        
+        <span className={style.ListHeading}>List Actions </span>
+        <span className={style.ListCloseIcon} onClick={handleClose}>
+          <CloseIcon/>
+        </span>
       </nav>
       <Divider />
       <nav>
@@ -48,7 +47,6 @@ export default function OptionList() {
         </List>
       </nav>
       <Divider />
-
       <nav aria-label="secondary mailbox folders">
         <p>Automation</p>
         <List>
@@ -74,7 +72,7 @@ export default function OptionList() {
           </ListItem>
         </List>
       </nav>
-      <Divider />
+      <Divider/>
       <nav>
         <List>
           <ListItem disablePadding>
@@ -89,7 +87,7 @@ export default function OptionList() {
           </ListItem>
         </List>
       </nav>
-      <Divider />
+      <Divider/>
       <nav>
         <List>
           <ListItem disablePadding>
