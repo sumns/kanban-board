@@ -9,8 +9,8 @@ function Board(props) {
   const [showDropdown, setShowDropdown] = useState(false);
   return (
     <div className="board">
-    <div className="board_header">
-      <p className="board_header_title">
+      <div className="board_header">
+        <p className="board_header_title">
           {props.board?.title}
           <span>{props.board?.cards?.length || 0}</span>
         </p>
@@ -21,14 +21,13 @@ function Board(props) {
         >
           <Options />
           {/* <MoreHorizIcon /> */}
+
           {showDropdown && (
             <Dropdown
-            class="board_dropdown"
-            onClose={() => setShowDropdown(false)}
-          >
-              
+              class="board_dropdown"
+              onClose={() => setShowDropdown(false)}
+            >
               <p onClick={() => props.removeBoard()}>Delete Board</p>
-             
             </Dropdown>
           )}
         </div>
@@ -46,7 +45,6 @@ function Board(props) {
             dragEnded={props.dragEnded}
           />
         ))}
-       
 
         <Editable
           text="+ Add Card"
@@ -61,5 +59,3 @@ function Board(props) {
 }
 
 export default Board;
-
-
