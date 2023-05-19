@@ -45,9 +45,7 @@ export default function App() {
     tempBoards[index].cards.push({
       id: Date.now() + Math.random() * 2,
       title,
-
       date: "",
-
     });
     setBoards(tempBoards);
   };
@@ -104,9 +102,11 @@ export default function App() {
     });
   };
 
+
   useEffect(() => {
     localStorage.setItem("prac-kanban", JSON.stringify(boards));
   }, [boards]);
+
 
   return (
      <>
@@ -116,8 +116,11 @@ export default function App() {
     
     <div className="app">
       <div className="app_navbar">
-        <MenuAppBar />
-        {/* <Navbar /> */}
+        {/* <MenuAppBar /> */}
+
+        <p><span>🌟</span> Kanban Board</p>
+
+       
       </div>
       <div className="app_outer">
         <div className="app_boards">

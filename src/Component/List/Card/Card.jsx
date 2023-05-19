@@ -3,14 +3,25 @@ import "./Card.css";
 import { Link } from 'react-router-dom';
 import EditIcon from "@mui/icons-material/Edit";
 import Dropdown from "../Dropdown/Dropdown";
+import CardInfo from "./CardInfo";
 
 function Card(props) {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { id, title} = props.card;
   
   return (
     <>
-    
+    {showModal && (
+        <CardInfo
+          onClose={() => setShowModal(false)}
+          card={props.card}
+          boardId={props.boardId}
+          updateCard={props.updateCard}
+
+        />
+      )}
+      
     <div
         className="card"
         draggable
