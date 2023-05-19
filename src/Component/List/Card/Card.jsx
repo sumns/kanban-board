@@ -3,14 +3,23 @@ import "./Card.css";
 
 import EditIcon from "@mui/icons-material/Edit";
 
-
-
 import Dropdown from "../Dropdown/Dropdown";
+import CardInfo from "./CardInfo";
 
 function Card(props) {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { id, title} = props.card;
   return (
+    <>
+    {showModal && (
+        <CardInfo
+          onClose={() => setShowModal(false)}
+          card={props.card}
+          boardId={props.boardId}
+
+        />
+      )}
     <div
         className="card"
         draggable
@@ -46,6 +55,7 @@ function Card(props) {
       <div className="card_title">{title}</div>
 
     </div>
+    </>
   );
 }
 
