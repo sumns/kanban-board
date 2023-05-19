@@ -3,7 +3,7 @@ import "./Card.css";
 import { Link } from 'react-router-dom';
 import EditIcon from "@mui/icons-material/Edit";
 import Dropdown from "../Dropdown/Dropdown";
-import CardInfo from "./CardInfo";
+// import CardInfo from "./CardInfo";
 
 function Card(props) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -12,7 +12,7 @@ function Card(props) {
   
   return (
     <>
-    {showModal && (
+    {/* {showModal && (
         <CardInfo
           onClose={() => setShowModal(false)}
           card={props.card}
@@ -20,7 +20,7 @@ function Card(props) {
           updateCard={props.updateCard}
 
         />
-      )}
+      )} */}
       
     <div
         className="card"

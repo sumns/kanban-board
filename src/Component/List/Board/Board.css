@@ -26,9 +26,9 @@
   align-items: center;
 }
 
-.board_header_title span {
+/* .board_header_title span {
   color: rgb(145, 145, 145);
-}
+} */
 
 .board_header_title_more {
   cursor: pointer;
@@ -47,7 +47,7 @@
 }
 
 .board_cards {
-  background-color: #f8f8f8;
+  /* background-color: #f8f8f8; */
   padding: 10px;
   border-radius: 5px;
   display: flex;
@@ -68,4 +68,9 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 10px;
+}
+
+a{
+  text-decoration: none;
+  color: #000;
 }

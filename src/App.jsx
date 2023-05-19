@@ -2,10 +2,11 @@ import Board from "./Component/List/Board/Board";
 import Editable from "./Component/List/Editable/Editable";
 import MenuAppBar from "./Component/Header/Header";
 import "./App.css";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 import Discription from "./Component/discription/Discription";
 //import CardDetails from "./Component/discription/Discription";
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./Component/navBar/NavBar";
 
 export default function App() {
   const [boards, setBoards] = useState(
@@ -26,7 +27,6 @@ export default function App() {
     });
     setBoards(tempBoards);
   };
-
 
   const removeBoard = (id) => {
     const index = boards.findIndex((item) => item.id === id);
@@ -102,53 +102,46 @@ export default function App() {
     });
   };
 
-
   useEffect(() => {
     localStorage.setItem("prac-kanban", JSON.stringify(boards));
   }, [boards]);
 
-
   return (
-     <>
-    <Routes>
-        <Route path="/card/:cardId" element={<Discription/>} />
-    </Routes>
-    
-    <div className="app">
-      <div className="app_navbar">
-        {/* <MenuAppBar /> */}
+    <>
+      <Routes>
+        <Route path="/card/:cardId" element={<Discription />} />
+      </Routes>
 
-        <p><span>🌟</span> Kanban Board</p>
-
-       
-      </div>
-      <div className="app_outer">
-        <div className="app_boards">
-
-        {boards.map((item) => (
-            <Board
-              key={item.id}
-              board={item}
-              addCard={addCardHandler}
-              removeBoard={() => removeBoard(item.id)}
-              removeCard={removeCard}
-              dragEnded={dragEnded}
-              dragEntered={dragEntered}
-            />
-          ))}
-          <div className="app_boards_board">
-          <Editable
-              displayClass="app_boards_add-board"
-              editClass="app_boards_add-board_edit"
-              placeholder="Enter Board Name"
-              text="Add Board"
-              buttonText="Add Board"
-              onSubmit={addboardHandler}
-            />
+      <div className="app">
+        <div className="app_navbar">
+          <Navbar />
+        </div>
+        <div className="app_outer">
+          <div className="app_boards">
+            {boards.map((item) => (
+              <Board
+                key={item.id}
+                board={item}
+                addCard={addCardHandler}
+                removeBoard={() => removeBoard(item.id)}
+                removeCard={removeCard}
+                dragEnded={dragEnded}
+                dragEntered={dragEntered}
+              />
+            ))}
+            <div className="app_boards_board">
+              <Editable
+                displayClass="app_boards_add-board"
+                editClass="app_boards_add-board_edit"
+                placeholder="Enter Board Name"
+                text="Add Board"
+                buttonText="Add Board"
+                onSubmit={addboardHandler}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
