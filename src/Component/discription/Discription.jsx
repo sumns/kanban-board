@@ -4,6 +4,7 @@ import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBullet
 import SubtitlesOutlinedIcon from "@mui/icons-material/SubtitlesOutlined";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import { useParams } from 'react-router-dom';
 
 const styles = {
   activity: { width: "15px" },
@@ -18,6 +19,10 @@ const styles = {
 };
 
 const Discription = () => {
+
+const { cardId } = useParams()
+
+
   return (
     <>
       <div className={style.main_container}>
@@ -27,7 +32,7 @@ const Discription = () => {
               <SubtitlesOutlinedIcon />
             </div>
             <div>
-              <h2>[Tile of card] </h2> <h6>in list (Name of column)</h6>
+              <h2>[Title of card] </h2> <h6>in list (Name of column)</h6>
             </div>
           </div>
 
