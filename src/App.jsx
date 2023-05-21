@@ -6,7 +6,10 @@ import { useState, useEffect } from "react";
 import Discription from "./Component/discription/Discription";
 //import CardDetails from "./Component/discription/Discription";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./Component/navBar/NavBar";
+// import Navbar from "./Component/navBar/NavBar";
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 export default function App() {
@@ -115,7 +118,9 @@ export default function App() {
 
       <div className="app">
         <div className="app_navbar">
-          <Navbar />
+          {/* <Navbar /> */}
+          <p className= "kanban-nav">Kanban Board <span>🌟</span></p>
+
         </div>
         <div className="app_outer">
           <div className="app_boards">

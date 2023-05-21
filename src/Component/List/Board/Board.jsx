@@ -1,27 +1,33 @@
 import React, { useState } from "react";
 import "./Board.css";
-import Options from "../../Options/Options";
+// import Options from "../../Options/Options";
 import Card from "../Card/Card";
 import Editable from "../Editable/Editable";
 // import Dropdown from "../Dropdown/Dropdown";
 import Dropdown from "../Dropdown/Dropdown";
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 function Board(props) {
   const [showDropdown, setShowDropdown] = useState(false);
+
   return (
     <div className="board">
       <div className="board_header">
-        <p className="board_header_title">
+      <p className="board_header_title">
           {props.board?.title}
           <span>{props.board?.cards?.length || 0}</span>
         </p>
 
         <div
           className="board_header_title_more"
-          onClick={() => setShowDropdown(true)}
+          // onClick={() => setShowDropdown(true)}
+          onClick={(event) => {
+            event.stopPropagation();
+            setShowDropdown(true);
+          }}
         >
-          <Options />
-          {/* <MoreHorizIcon /> */}
+          {/* <Options /> */}
+          <MoreHorizIcon />
 
           {showDropdown && (
             <Dropdown
