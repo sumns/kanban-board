@@ -7,9 +7,7 @@ import Discription from "./Component/discription/Discription";
 //import CardDetails from "./Component/discription/Discription";
 import { Routes, Route } from "react-router-dom";
 // import Navbar from "./Component/navBar/NavBar";
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import HelpCenterIcon from '@mui/icons-material/HelpCenter';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 
 export default function App() {
