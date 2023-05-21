@@ -3,6 +3,7 @@ import "./Board.css";
 import Options from "../../Options/Options";
 import Card from "../Card/Card";
 import Editable from "../Editable/Editable";
+// import Dropdown from "../Dropdown/Dropdown";
 import Dropdown from "../Dropdown/Dropdown";
 
 function Board(props) {
@@ -33,7 +34,6 @@ function Board(props) {
         </div>
       </div>
 
-      {/* // all cards */}
       <div className="board_cards custom-scroll">
         {props.board?.cards?.map((item) => (
           <Card
